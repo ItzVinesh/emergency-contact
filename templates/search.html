@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearID | Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ClearID home"><span class="brand-mark">C</span><span>ClearID</span></a>
+    <span class="secure-label"><span class="status-dot"></span> Secure session</span>
+  </header>
+  <main class="center-layout">
+    <section class="form-card search-card">
+      <div class="icon-badge" aria-hidden="true">&#9906;</div>
+      <p class="eyebrow">Record lookup</p>
+      <h1>Find a record.</h1>
+      <p class="muted">Enter the 12-digit Aadhaar number to view the matching identity information.</p>
+      <form method="POST" action="/search" class="stacked-form">
+        <label for="aadhaar_no">Aadhaar number</label>
+        <input id="aadhaar_no" type="text" name="aadhaar_no" inputmode="numeric" pattern="[0-9]{12}" maxlength="12" placeholder="0000 0000 0000" required>
+        <button class="button button-primary" type="submit">Search records <span aria-hidden="true">&#8594;</span></button>
+      </form>
+      <a class="back-link" href="/">&#8592; Back to home</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="10">
+  <title>ClearID | Live data</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ClearID home"><span class="brand-mark">C</span><span>ClearID</span></a>
+    <span class="secure-label"><span class="status-dot"></span> Live CSV view</span>
+  </header>
+  <main class="data-layout">
+    <div class="data-heading">
+      <div>
+        <p class="eyebrow">Administrator view</p>
+        <h1>Live records.</h1>
+        <p class="muted">This page reloads every 10 seconds and reads the latest data directly from the CSV file.</p>
+      </div>
+      <a class="button button-primary" href="/admin-data">Refresh now <span aria-hidden="true">&#8635;</span></a>
+    </div>
+    <section class="data-table-wrap">
+      {% if rows %}
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Username</th><th>Name</th><th>Aadhaar number</th><th>Medical emergency</th><th>Last login (UTC)</th></tr></thead>
+          <tbody>{% for row in rows %}<tr><td><strong>{{ row.username }}</strong></td><td>{{ row.name }}</td><td>{{ row.aadhaar_no }}</td><td>{{ row.medical_emergency }}</td><td><span class="login-time">{{ row.last_login }}</span></td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-state"><span class="empty-icon">?</span><p>No records found.</p><span>The CSV file is currently empty.</span></div>{% endif %}
+    </section>
+    <a class="back-link" href="/">&#8592; Back to home</a>
+  </main>
+</body>
+</html>

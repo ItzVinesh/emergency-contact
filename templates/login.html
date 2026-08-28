@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearID | Sign in</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ClearID home"><span class="brand-mark">C</span><span>ClearID</span></a>
+    <a class="header-link" href="/">Return home</a>
+  </header>
+  <main class="center-layout">
+    <section class="form-card">
+      <p class="eyebrow">Authorized access</p>
+      <h1>Welcome back.</h1>
+      <p class="muted">Sign in to search the identity records portal.</p>
+      <form method="POST" action="/login" class="stacked-form">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" placeholder="Enter your username" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+        <button class="button button-primary" type="submit">Sign in <span aria-hidden="true">&#8594;</span></button>
+      </form>
+      {% if error %}<p class="alert alert-error" role="alert">{{ error }}</p>{% endif %}
+      <a class="back-link" href="/">&#8592; Back to home</a>
+    </section>
+  </main>
+</body>
+</html>

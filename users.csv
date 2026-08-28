@@ -1,0 +1,2 @@
+username,name,aadhaar_no,medical_emergency,password_hash,last_login
+admin,Admin User,123456789012,"Emergency Contact: ABC, Phone: 9876543210",scrypt:32768:8:1$hMqlfZX0pyfe9ENr$1d413c97a8b3f99d76cc7b18cf1c28e62651f963f422bcb3f93efa31b94ceb702fa0d74b4ef38d5ab067fd3af65d70d86aafe8aa37059fe7f3132fe0005aa6bd,2026-08-27T09:54:54+00:00

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearID | Search results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ClearID home"><span class="brand-mark">C</span><span>ClearID</span></a>
+    <a class="header-link" href="/search">New search <span aria-hidden="true">&#8599;</span></a>
+  </header>
+  <main class="center-layout">
+    <section class="results-card">
+      <div class="results-heading"><div><p class="eyebrow">Record lookup</p><h1>Search results</h1></div><span class="result-badge">{% if user %}Found{% else %}No match{% endif %}</span></div>
+      {% if error %}<p class="alert alert-error" role="alert">{{ error }}</p>{% endif %}
+      {% if user %}
+        <div class="identity-name"><span class="avatar">{{ user.name[0] }}</span><div><span class="field-label">Full name</span><strong>{{ user.name }}</strong></div></div>
+        <dl class="details-grid">
+          <div><dt>Aadhaar number</dt><dd>{{ user.aadhaar_no }}</dd></div>
+          <div><dt>Medical emergency</dt><dd>{{ user.medical_emergency }}</dd></div>
+        </dl>
+      {% else %}<div class="empty-state"><span class="empty-icon">?</span><p>No user information found.</p><span>Check the number and try again.</span></div>{% endif %}
+      <div class="result-actions"><a class="button button-primary" href="/search">Search again <span aria-hidden="true">&#8594;</span></a><a class="back-link" href="/">Back to home</a></div>
+    </section>
+  </main>
+</body>
+</html>
